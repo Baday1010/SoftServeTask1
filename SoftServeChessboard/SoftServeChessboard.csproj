@@ -5,10 +5,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99299E01-73DA-4B02-85B4-8CAB0AFDDD27}</ProjectGuid>
+    <ProjectGuid>{BC7797E5-F849-4970-9AA7-6FA92180F1F4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SoftServeTask1</RootNamespace>
-    <AssemblyName>SoftServeTask1</AssemblyName>
+    <RootNamespace>SoftServeChessboard</RootNamespace>
+    <AssemblyName>SoftServeChessboard</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,10 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs" />
+    <Compile Include="BoardController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Triangle.cs" />
-    <Compile Include="TriangleController.cs" />
     <Compile Include="View.cs" />
   </ItemGroup>
   <ItemGroup>

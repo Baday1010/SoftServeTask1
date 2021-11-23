@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
@@ -20,7 +17,9 @@ namespace ConsoleApp1
 
         private double p;
 
-        public void ShowInfo()
+
+
+        public void PrintInfoTriangle()
         {
             Console.WriteLine($"[Triange {Name}]: {S} cm");
         }
@@ -41,14 +40,26 @@ namespace ConsoleApp1
             return S.CompareTo(obj.S);
         }
 
+        private double SetHalfPerimetr()
+        {
+            return (sideA + sideB + sideC) / 2;
+        }
+
+        private double SetSquare()
+        {
+            return Math.Sqrt((p * (p - sideC)) * (p * (p - sideB)) * (p * (p - sideB)));
+        }
+
         public Triangle(string Name, double sideA, double sideB, double sideC)
         {
             this.sideA = sideA;
             this.sideB = sideB;
             this.sideC = sideC;
             this.Name = Name;
-            this.p = (sideA + sideB + sideC) / 2;
-            S = Math.Sqrt((p * (p - sideC)) * (p * (p - sideB)) * (p * (p - sideB)));
+            this.p = SetHalfPerimetr();
+            this.S = SetSquare();
+           
+           
         }
     }
 }
