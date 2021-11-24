@@ -11,9 +11,9 @@ namespace ConsoleApp1
 
         private double sideC;
 
-        private string Name;
+        public string Name { get; private set; }
 
-        private double S;
+        public double S { get; private set; }
 
         private double p;
 

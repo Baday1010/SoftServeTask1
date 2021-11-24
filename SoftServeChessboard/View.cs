@@ -1,10 +1,13 @@
-﻿using System;
+﻿using ConsoleApp1;
+using System;
 
 namespace SoftServeChessboard
 {
     class View
     {
         public int Width { get; private set; }
+
+        public Board board;
 
         public int Height { get; private set; }
 
@@ -14,6 +17,7 @@ namespace SoftServeChessboard
         {
             Width = 0;
             Height = 0;
+#pragma warning disable CS0219 
             string[,] mas = null;
             GetValues();
         } 

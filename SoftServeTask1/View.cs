@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1;
+using System;
 
 namespace SoftServeTask1
 {
@@ -33,8 +34,10 @@ namespace SoftServeTask1
         {
             try
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Введите название треугольника: ");
                 this.Name = Console.ReadLine();
+                Console.ResetColor();
                 Console.WriteLine("Введите первую сторону: ");
                 //bool IsNumA = double.TryParse(Console.ReadLine(), out sideA);
                 this.sideA = Convert.ToDouble(Console.ReadLine());
@@ -51,9 +54,18 @@ namespace SoftServeTask1
             }
         }
         
-        public void PrintInfoTriangle()
+        public void PrintInfoTriangle(Triangle triangle)
         {
-            Console.WriteLine($"[Triange {Name}]: {S} cm");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"[Triange {triangle.Name}]: {triangle.S} cm");
+            Console.ResetColor();
+        }
+
+        public void ShowErrorMessage()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Это не треугольник\n");
+            Console.ResetColor();
         }
     }
 }
