@@ -11,8 +11,12 @@ namespace SoftServeChessboard
         public BoardController()
         {
             view = new View();
-            board = new Board(view.Width, view.Height);
-            view.mas = board.CreateBoard();
+            board = view.board;
+        }
+
+        public void Run()
+        {
+            board.mas = board.CreateBoard();
             view.DisplayBoard();
         }
     }

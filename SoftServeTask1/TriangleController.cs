@@ -1,28 +1,31 @@
 ﻿using ConsoleApp1;
 using System;
 using System.Collections.Generic;
-using NUnit.Framework;
 
 namespace SoftServeTask1
 {
-    class TriangleController
+    public class TriangleController
     {
-        private ConsoleKeyInfo input;
-
         private Triangle triangle;
 
         private View view;
 
-        public List<Triangle> listOfTriangles = new List<Triangle>();
+        public List<Triangle> listOfTriangles { get; private set; }
 
         public TriangleController()
         {
+            listOfTriangles = new List<Triangle>();
+        }
+
+        public void Run()
+        {
+            ConsoleKeyInfo input;
             do
             {
                 view = new View();
                 if (IsTriangle(view))
                 {
-                  
+
                     triangle = new Triangle(view.Name, view.sideA, view.sideB, view.sideC);
                     listOfTriangles.Add(triangle);
                 }
@@ -31,11 +34,13 @@ namespace SoftServeTask1
                 input = Console.ReadKey(true);
             } while (input.Key != ConsoleKey.N);
             DisplaySortedListOfTriangles();
-           
         }
 
+        
+        //TODO попробовать реализовать одной строкой
         private void DisplaySortedListOfTriangles()
         {
+            //listOfTriangles.ForEach();         
             listOfTriangles.Sort();
             foreach (var item in listOfTriangles)
             {
@@ -54,11 +59,9 @@ namespace SoftServeTask1
         //    }
         //}
 
-        [Test]
-        private bool IsTriangle(View view)
+        public bool IsTriangle(View view)
         {
-            //Assert.That(view, Is.All.Not.Null);
-            if (view.sideA + view.sideB < view.sideC || view.sideA + view.sideC < view.sideB || view.sideB + view.sideC < view.sideA ||
+            if (view.sideA + view.sideB <= view.sideC || view.sideA + view.sideC <= view.sideB || view.sideB + view.sideC <= view.sideA ||
                 view.sideA == 0 || view.sideB == 0 || view.sideC == 0)
             {
                 view.ShowErrorMessage();

@@ -5,41 +5,35 @@ namespace SoftServeChessboard
 {
     class View
     {
-        public int Width { get; private set; }
-
         public Board board;
-
-        public int Height { get; private set; }
-
-        public string[,] mas { get; set; }
         
         public View()
         {
-            Width = 0;
-            Height = 0;
-#pragma warning disable CS0219 
-            string[,] mas = null;
-            GetValues();
+            board = new Board(0, 0);
+            SetValues();
         } 
 
-        private void GetValues()
+        private void SetValues()
         {
             Console.WriteLine("Enter Width: ");
-            this.Width = Convert.ToInt32(Console.ReadLine());
+            board.Width = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Enter Height: ");
-            this.Height = Convert.ToInt32(Console.ReadLine());
+            board.Height = Convert.ToInt32(Console.ReadLine());
 
-            this.mas = new string[Width, Height];
+            board.mas = new string[board.Width, board.Height];
         }
 
         public void DisplayBoard()
         {
-            for (int i = 0; i < Width; i++)
+            Console.SetWindowSize(1, 1);
+            Console.SetBufferSize(80, 80);
+            Console.SetWindowSize(40, 20);
+            for (int i = 0; i < board.Width; i++)
             {
-                for (int j = 0; j < Height; j++)
+                for (int j = 0; j < board.Height; j++)
                 {
-                    Console.Write(mas[i, j]);
+                    Console.Write(board.mas[i, j]);
                 }
                 Console.WriteLine();
             }

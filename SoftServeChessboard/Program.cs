@@ -5,6 +5,7 @@
         static void Main(string[] args)
         {
             BoardController boardController = new BoardController();
+            boardController.Run();
         }
     }
 }

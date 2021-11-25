@@ -4,19 +4,17 @@
     //TODO Найти класс buffering и ограничить размеры вывода в консоли
     class Board
     {
-        private int Width { get; set; }
+        public int Width { get; set; }
 
-        private int Height { get; set; }
+        public int Height { get; set; }
 
-        private string[,] mas;
+        public string[,] mas;
 
         public Board(int Width, int Height)
         {
             this.Width = Width;
             this.Height = Height;
             mas = new string[Width, Height];
-            //Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
-            //Console.SetBufferSize
         }
 
         public string[,] CreateBoard()

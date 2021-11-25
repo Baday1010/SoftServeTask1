@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftServeChessboard", "Soft
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{22927DFE-8145-4F9E-98F9-FEB511490B26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftServeTask1UnitTest", "SoftServeTask1UnitTest\SoftServeTask1UnitTest.csproj", "{235D23DA-FBE5-4845-9CF4-3B242BA8421B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{22927DFE-8145-4F9E-98F9-FEB511490B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22927DFE-8145-4F9E-98F9-FEB511490B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22927DFE-8145-4F9E-98F9-FEB511490B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{235D23DA-FBE5-4845-9CF4-3B242BA8421B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{235D23DA-FBE5-4845-9CF4-3B242BA8421B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{235D23DA-FBE5-4845-9CF4-3B242BA8421B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{235D23DA-FBE5-4845-9CF4-3B242BA8421B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

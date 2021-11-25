@@ -3,7 +3,7 @@ using System;
 
 namespace SoftServeTask1
 {
-    class View
+    public class View
     {
 
         public double sideA { get; private set; }
@@ -14,9 +14,9 @@ namespace SoftServeTask1
 
         public string Name { get; private set; }
 
-        public double S { get; private set; }
+        public double Square { get; private set; }
 
-        public double p { get; private set; }
+        public double Perimetr { get; private set; }
 
 
         public View()
@@ -25,12 +25,23 @@ namespace SoftServeTask1
             sideB = 0;
             sideC = 0;
             Name = "";
-            S = 0;
-            p = 0;
-            GetValues();
+            Square = 0;
+            Perimetr = 0;
+            SetValues();
         }
 
-        private void GetValues()
+        public View(double sideA, double sideB, double sideC, string Name)
+        {
+            this.sideA = sideA;
+            this.sideB = sideB;
+            this.sideC = sideC;
+            this.Name = Name;
+            this.Perimetr = (sideA + sideB + sideC) / 2;
+            this.Square = Math.Sqrt((Perimetr * (Perimetr - sideC)) * (Perimetr * (Perimetr - sideB)) * (Perimetr * (Perimetr - sideB)));
+
+        }
+
+        private void SetValues()
         {
             try
             {
@@ -57,7 +68,7 @@ namespace SoftServeTask1
         public void PrintInfoTriangle(Triangle triangle)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"[Triange {triangle.Name}]: {triangle.S} cm");
+            Console.WriteLine($"[Triange {triangle.Name}]: {triangle.Square} cm");
             Console.ResetColor();
         }
 
