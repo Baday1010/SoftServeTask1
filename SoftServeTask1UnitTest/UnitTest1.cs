@@ -12,7 +12,7 @@ namespace SoftServeTask1UnitTest
         [SetUp]
         public void Setup()
         {
-            view = new View(10, 10, 15, "first");
+            //view = new View(10, 10, 15, "first");
             controller = new TriangleController();
         }
 

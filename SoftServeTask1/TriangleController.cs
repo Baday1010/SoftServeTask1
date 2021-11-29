@@ -1,6 +1,7 @@
 ﻿using ConsoleApp1;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SoftServeTask1
 {
@@ -26,7 +27,7 @@ namespace SoftServeTask1
                 if (IsTriangle(view))
                 {
 
-                    triangle = new Triangle(view.Name, view.sideA, view.sideB, view.sideC);
+                    triangle = new Triangle(view.triangle.Name, view.triangle.sideA, view.triangle.sideB, view.triangle.sideC);
                     listOfTriangles.Add(triangle);
                 }
 
@@ -36,16 +37,10 @@ namespace SoftServeTask1
             DisplaySortedListOfTriangles();
         }
 
-        
-        //TODO попробовать реализовать одной строкой
         private void DisplaySortedListOfTriangles()
-        {
-            //listOfTriangles.ForEach();         
+        {     
             listOfTriangles.Sort();
-            foreach (var item in listOfTriangles)
-            {
-                view.PrintInfoTriangle(item);
-            }
+            listOfTriangles.ForEach(view.PrintInfoTriangle);
         }
 
         //private void IsTriangle(View view)
@@ -61,8 +56,9 @@ namespace SoftServeTask1
 
         public bool IsTriangle(View view)
         {
-            if (view.sideA + view.sideB <= view.sideC || view.sideA + view.sideC <= view.sideB || view.sideB + view.sideC <= view.sideA ||
-                view.sideA == 0 || view.sideB == 0 || view.sideC == 0)
+            if (view.triangle.sideA + view.triangle.sideB <= view.triangle.sideC || view.triangle.sideA + view.triangle.sideC
+                <= view.triangle.sideB || view.triangle.sideB + view.triangle.sideC <= view.triangle.sideA ||
+                view.triangle.sideA == 0 || view.triangle.sideB == 0 || view.triangle.sideC == 0)
             {
                 view.ShowErrorMessage();
                 return false;

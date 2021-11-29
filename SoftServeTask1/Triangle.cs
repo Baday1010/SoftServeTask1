@@ -5,13 +5,13 @@ namespace ConsoleApp1
 {
     public class Triangle : IComparer<Triangle>, IComparable<Triangle>
     {
-        private double sideA;
+        public double sideA { get; set; }
 
-        private double sideB;
+        public double sideB { get; set; }
 
-        private double sideC;
+        public double sideC { get; set; }
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         private double Perimetr
         {
