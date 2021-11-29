@@ -8,6 +8,7 @@ namespace ConsoleApp1
         {
             TriangleController triangleController = new TriangleController();
             triangleController.Run();
+            Triangle t = new Triangle("", 0, 0, 0);
         }
     }
 }

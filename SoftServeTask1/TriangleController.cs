@@ -1,11 +1,10 @@
 ﻿using ConsoleApp1;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace SoftServeTask1
 {
-    public class TriangleController
+    public class TriangleController : IValidator
     {
         private Triangle triangle;
 
