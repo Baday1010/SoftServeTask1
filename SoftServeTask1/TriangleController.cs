@@ -6,7 +6,6 @@ namespace SoftServeTask1
 {
     public class TriangleController : IValidator
     {
-        private Triangle triangle;
 
         private View view;
 
@@ -23,50 +22,33 @@ namespace SoftServeTask1
             do
             {
                 view = new View();
-                if (IsTriangle(view))
+                if (IsTriangle(view.triangle.SideA, view.triangle.SideB, view.triangle.SideC))
                 {
-
-                    triangle = new Triangle(view.triangle.Name, view.triangle.sideA, view.triangle.sideB, view.triangle.sideC);
-                    listOfTriangles.Add(triangle);
+                    listOfTriangles.Add(new Triangle(view.triangle.Name, view.triangle.SideA, view.triangle.SideB, view.triangle.SideC));
                 }
 
                 Console.WriteLine("Press Y to add triangle and N to stop adding");
                 input = Console.ReadKey(true);
             } while (input.Key != ConsoleKey.N);
+            listOfTriangles.Sort();
             DisplaySortedListOfTriangles();
         }
 
-        private void DisplaySortedListOfTriangles()
+        public void DisplaySortedListOfTriangles()
         {     
-            listOfTriangles.Sort();
             listOfTriangles.ForEach(view.PrintInfoTriangle);
         }
 
-        //private void IsTriangle(View view)
-        //{
-        //    if (view.sideA + view.sideB < view.sideC || view.sideA + view.sideC < view.sideB || view.sideB + view.sideC < view.sideA ||
-        //        view.sideA == 0 || view.sideB == 0 || view.sideC == 0)
-        //    {
-        //        Console.WriteLine("Это не треугольник\n");
-        //        view = new View();
-        //        triangle = new Triangle(view.Name, view.sideA, view.sideB, view.sideC);
-        //    }
-        //}
-
-        public bool IsTriangle(View view)
+        public bool IsTriangle(double sideA, double sideB, double sideC)
         {
-            if (view.triangle.sideA + view.triangle.sideB <= view.triangle.sideC || view.triangle.sideA + view.triangle.sideC
-                <= view.triangle.sideB || view.triangle.sideB + view.triangle.sideC <= view.triangle.sideA ||
-                view.triangle.sideA == 0 || view.triangle.sideB == 0 || view.triangle.sideC == 0)
+            bool res = true;
+            if (sideA + sideB <= sideC || sideA + sideC <= sideB || sideB + sideC <= sideA || sideA == 0 || sideB == 0 || sideC == 0)
             {
                 view.ShowErrorMessage();
-                return false;
+                res = false;
                 
             }
-            else
-            {
-                return true;
-            }
+            return res;
             
         }
     }

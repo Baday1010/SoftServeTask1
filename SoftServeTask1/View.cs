@@ -7,48 +7,39 @@ namespace SoftServeTask1
     {
         public Triangle triangle;
 
-        //public double sideA { get; private set; }
-
-        //public double sideB { get; private set; }
-
-        //public double sideC { get; private set; }
-
-        //public string Name { get; private set; }
-
-        //public double Square { get; private set; }
-
-        //public double Perimetr { get; private set; }
-
         public View()
         {
-            triangle = new Triangle("", 0, 0, 0);
-            //sideA = 0;
-            //sideB = 0;
-            //sideC = 0;
-            //Name = "";
-            //Square = 0;
-            //Perimetr = 0;
             SetValues();
         }
 
         private void SetValues()
         {
+            double sideA;
+            double sideB;
+            double sideC;
+            string name;
             try
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Введите название треугольника: ");
-                this.triangle.Name = Console.ReadLine();
+                name = Console.ReadLine();
                 Console.ResetColor();
                 Console.WriteLine("Введите первую сторону: ");
-                this.triangle.sideA = Convert.ToDouble(Console.ReadLine());
+                sideA = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Введите вторую сторону: ");
-                this.triangle.sideB = Convert.ToDouble(Console.ReadLine());
+                sideB = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Введите третью сторону: ");
-                this.triangle.sideC = Convert.ToDouble(Console.ReadLine());
+                sideC = Convert.ToDouble(Console.ReadLine());
+                // TODO перенести сюда IsTriangle
+                triangle = new Triangle(name, sideA, sideB, sideC);
             }
             catch (FormatException ex)
             {
                 throw new FormatException(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
         

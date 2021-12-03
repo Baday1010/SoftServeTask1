@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Program
+    public static class ElementFactory
     {
-        static void Main(string[] args)
+        public static void Create()
         {
-            
+
         }
     }
 }

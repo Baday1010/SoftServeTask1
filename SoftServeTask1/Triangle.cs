@@ -5,15 +5,15 @@ namespace ConsoleApp1
 {
     public class Triangle : IComparer<Triangle>, IComparable<Triangle>
     {
-        public double sideA { get; set; }
+        public double SideA { get; }
 
-        public double sideB { get; set; }
+        public double SideB { get; }
 
-        public double sideC { get; set; }
+        public double SideC { get; }
 
         public string Name { get; set; }
 
-        private double Perimetr
+        public double HalfPerimetr
         {
             get
             {
@@ -47,25 +47,20 @@ namespace ConsoleApp1
 
         private double SetHalfPerimetr()
         {
-            return (sideA + sideB + sideC) / 2;
+            return (SideA + SideB + SideC) / 2;
         }
 
         private double SetSquare()
         {
-            return Math.Sqrt((Perimetr * (Perimetr - sideC)) * (Perimetr * (Perimetr - sideB)) * (Perimetr * (Perimetr - sideB)));
+            return Math.Sqrt((HalfPerimetr * (HalfPerimetr - SideC)) * (HalfPerimetr * (HalfPerimetr - SideB)) * (HalfPerimetr * (HalfPerimetr - SideB)));
         }
 
         public Triangle(string Name, double sideA, double sideB, double sideC)
         {
-            this.sideA = sideA;
-            this.sideB = sideB;
-            this.sideC = sideC;
+            this.SideA = sideA;
+            this.SideB = sideB;
+            this.SideC = sideC;
             this.Name = Name;
-            
-            //this.Perimetr = SetHalfPerimetr();
-            //this.Square = SetSquare();
-           
-           
         }
     }
 }

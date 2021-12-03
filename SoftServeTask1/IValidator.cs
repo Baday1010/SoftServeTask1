@@ -8,6 +8,6 @@ namespace SoftServeTask1
 {
     interface IValidator
     {
-        bool IsTriangle(View view);
+        bool IsTriangle(double sideA, double sideB, double sideC);
     }
 }
