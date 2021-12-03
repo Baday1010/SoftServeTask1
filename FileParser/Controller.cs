@@ -5,13 +5,13 @@ namespace FileParser
 {
     public class Controller
     {
-        public int CountOfSubStringMatches { get; private set; }
+        private int CountOfSubStringMatches { get; set; }
 
-        public string[] Lines { get; private set; }
+        private string[] Lines { get; set; }
 
-        public int LineNumber { get; private set; }
+        private int LineNumber { get; set; }
 
-        public string SerchingSubString { get; private set; }
+        private string SerchingSubString { get; set; }
 
         /// <summary>
         /// Конструктор
@@ -49,8 +49,7 @@ namespace FileParser
                 this.LineNumber = Convert.ToInt32(Console.ReadLine());
                 Lines = File.ReadAllLines(path);
                 this.SerchingSubString = serchingSubString;
-                replaceSubString = StaticParser.FindAndReplaceSubString(path, this.LineNumber, SerchingSubString, ReplaceSubString, Lines);
-                Lines[this.LineNumber - 1] = replaceSubString;
+                Lines[this.LineNumber - 1] = StaticParser.FindAndReplaceSubString(path, this.LineNumber, SerchingSubString, replaceSubString, Lines);
                 File.WriteAllLines(Environment.CurrentDirectory + @"\txtfiles\1.txt", Lines);
             }
             catch (Exception ex)
