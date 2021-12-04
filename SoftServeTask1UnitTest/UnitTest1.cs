@@ -12,15 +12,10 @@ namespace SoftServeTask1UnitTest
         [SetUp]
         public void Setup()
         {
-            //view = new View(10, 10, 15, "first");
             controller = new TriangleController();
+            view = new View();
         }
 
-       
-        public void Test1()
-        {
-            Assert.Pass();
-        }
 
         [TestCase(12, 3, 4)]
         [TestCase(12, 2, 6)]
@@ -32,13 +27,22 @@ namespace SoftServeTask1UnitTest
         }
         [Test]
         [Category("Controller")]
-        //[TestCase(10, 10, 15, ExpectedResult = true)]
-        public void Test_IsTrianglePositive()
+        [TestCase(10.0, 10.0, 15.0)]
+        public void Test_IsTrianglePositive(double a, double b, double c)
         {
-            //Setup();
-            //bool result = controller.IsTriangle(view);
-            ////Assert.IsTrue(result, "I should not be false");
-            //Assert.That(result, Is.EqualTo(true));
+            Setup();
+            bool result = controller.IsTriangle(a, b, c);
+            Assert.IsTrue(result, "I should not be false");
+        }
+
+        [Test]
+        [Category("Controller")]
+        [TestCase(100.0, 10.7, 15.24)]
+        public void Test_IsTriangleNegative(double a, double b, double c)
+        {
+            Setup();
+            bool result = controller.IsTriangle(a, b, c);
+            Assert.IsFalse(result, "I should not be true");
         }
 
         [TearDown]
