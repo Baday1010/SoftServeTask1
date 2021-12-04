@@ -9,6 +9,11 @@ namespace SoftServeTask1
 
         public View()
         {
+            
+        }
+
+        public void Run()
+        {
             SetValues();
         }
 
@@ -54,6 +59,13 @@ namespace SoftServeTask1
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Это не треугольник\n");
+            Console.ResetColor();
+        }
+
+        public void ShowOkeyMessage()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Треугольник добавлен в список\n");
             Console.ResetColor();
         }
     }

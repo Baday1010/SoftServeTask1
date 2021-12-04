@@ -14,6 +14,7 @@ namespace SoftServeTask1
         public TriangleController()
         {
             listOfTriangles = new List<Triangle>();
+            view = new View();
         }
 
         public void Run()
@@ -21,7 +22,7 @@ namespace SoftServeTask1
             ConsoleKeyInfo input;
             do
             {
-                view = new View();
+                view.Run();
                 if (IsTriangle(view.triangle.SideA, view.triangle.SideB, view.triangle.SideC))
                 {
                     listOfTriangles.Add(new Triangle(view.triangle.Name, view.triangle.SideA, view.triangle.SideB, view.triangle.SideC));
@@ -47,6 +48,10 @@ namespace SoftServeTask1
                 view.ShowErrorMessage();
                 res = false;
                 
+            }
+            else
+            {
+                view.ShowOkeyMessage();
             }
             return res;
             
