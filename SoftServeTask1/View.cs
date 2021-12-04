@@ -40,7 +40,7 @@ namespace SoftServeTask1
             }
             catch (FormatException ex)
             {
-                throw new FormatException(ex.Message);
+                throw new FormatException("Введены неверные параметры" + ex.Message);
             }
             catch (Exception ex)
             {
