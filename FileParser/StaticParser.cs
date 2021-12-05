@@ -10,21 +10,28 @@ namespace FileParser
 {
     public static class StaticParser
     {
-        public static int FindSubString(string path, int lineNumber, string subString, string[] lines)
+        public static int FindSubString(int lineNumber, string subString, string[] lines)
         {
             try
             {
                 return Regex.Matches(lines[lineNumber - 1], subString).Count;
             }
+            catch (ArgumentNullException ex)
+            {
+                throw new ArgumentNullException("Parameters can't be null. " + ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new ArgumentException("Parameters enter incorrectly " + ex.Message);
+            }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("{0} Exception caught.", ex);
             }
 
         }
 
-        public static string FindAndReplaceSubString(string path, int lineNumber, string subStringToSearch,
-            string subStringToReplace, string[] lines)
+        public static string FindAndReplaceSubString(int lineNumber, string subStringToSearch, string subStringToReplace, string[] lines)
         {
             try
             {
@@ -33,7 +40,7 @@ namespace FileParser
             catch (Exception ex)
             {
 
-                throw new Exception(ex.Message);
+                throw new Exception($"{ex.Message} An error was found");
             }
         }
     }

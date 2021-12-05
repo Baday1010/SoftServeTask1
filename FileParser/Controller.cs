@@ -26,12 +26,12 @@ namespace FileParser
                 Lines = File.ReadAllLines(path);
                 Console.Write("Enter Substring to find: ");
                 this.SerchingSubString = Console.ReadLine();
-                this.CountOfSubStringMatches = StaticParser.FindSubString(path, this.LineNumber, SerchingSubString, Lines);
+                this.CountOfSubStringMatches = StaticParser.FindSubString(this.LineNumber, SerchingSubString, Lines);
             }
             catch (Exception ex)
             {
 
-                throw new Exception("Аргументы введены неверно пожалуйста повторите попытку " + ex.Message);
+                throw new Exception("Parametrs entered incorrectly please try again. " + ex.Message);
             }
             
         }
@@ -49,13 +49,13 @@ namespace FileParser
                 this.LineNumber = Convert.ToInt32(Console.ReadLine());
                 Lines = File.ReadAllLines(path);
                 this.SerchingSubString = serchingSubString;
-                Lines[this.LineNumber - 1] = StaticParser.FindAndReplaceSubString(path, this.LineNumber, SerchingSubString, replaceSubString, Lines);
+                Lines[this.LineNumber - 1] = StaticParser.FindAndReplaceSubString(this.LineNumber, SerchingSubString, replaceSubString, Lines);
                 File.WriteAllLines(Environment.CurrentDirectory + @"\txtfiles\1.txt", Lines);
             }
             catch (Exception ex)
             {
 
-                throw new Exception("Аргументы введены неверно пожалуйста повторите попытку " + ex.Message);
+                throw new Exception("Parametrs entered incorrectly please try again. " + ex.Message);
             }
 
         }
