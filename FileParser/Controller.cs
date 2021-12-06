@@ -14,7 +14,7 @@ namespace FileParser
         private string SerchingSubString { get; set; }
 
         /// <summary>
-        /// Конструктор
+        /// Конструктор с двумя параметрами
         /// </summary>
         /// <param name="path">Путь к файлу</param>
         /// <param name="lineNumber">Строка для подсчёта</param>
@@ -36,11 +36,11 @@ namespace FileParser
             
         }
         /// <summary>
-        /// 
+        /// Конструктор с тремя параметрами
         /// </summary>
-        /// <param name="path"></param>
-        /// <param name="serchingSubString"></param>
-        /// <param name="replaceSubString"></param>
+        /// <param name="path">Путь к файлу</param>
+        /// <param name="serchingSubString">Подстрока для поиска</param>
+        /// <param name="replaceSubString">Подстрока для замены</param>
         public Controller(string path, string serchingSubString, string replaceSubString)
         {
             try

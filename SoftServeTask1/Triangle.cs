@@ -55,12 +55,12 @@ namespace ConsoleApp1
             return Math.Sqrt((HalfPerimetr * (HalfPerimetr - SideC)) * (HalfPerimetr * (HalfPerimetr - SideB)) * (HalfPerimetr * (HalfPerimetr - SideB)));
         }
 
-        public Triangle(string Name, double sideA, double sideB, double sideC)
+        public Triangle(string name, double sideA, double sideB, double sideC)
         {
             this.SideA = sideA;
             this.SideB = sideB;
             this.SideC = sideC;
-            this.Name = Name;
+            this.Name = name;
         }
     }
 }

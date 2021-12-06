@@ -5,47 +5,9 @@ namespace SoftServeTask1
 {
     public class View
     {
-        public Triangle triangle;
-
         public View()
         {
             
-        }
-
-        public void Run()
-        {
-            SetValues();
-        }
-
-        private void SetValues()
-        {
-            double sideA;
-            double sideB;
-            double sideC;
-            string name;
-            try
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Введите название треугольника: ");
-                name = Console.ReadLine();
-                Console.ResetColor();
-                Console.WriteLine("Введите первую сторону: ");
-                sideA = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Введите вторую сторону: ");
-                sideB = Convert.ToDouble(Console.ReadLine());
-                Console.WriteLine("Введите третью сторону: ");
-                sideC = Convert.ToDouble(Console.ReadLine());
-                // TODO перенести сюда IsTriangle
-                triangle = new Triangle(name, sideA, sideB, sideC);
-            }
-            catch (FormatException ex)
-            {
-                throw new FormatException("Введены неверные параметры" + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
         }
         
         public void PrintInfoTriangle(Triangle triangle)
@@ -55,18 +17,20 @@ namespace SoftServeTask1
             Console.ResetColor();
         }
 
-        public void ShowErrorMessage()
+        public void ShowMessage(bool flag)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Это не треугольник\n");
-            Console.ResetColor();
-        }
-
-        public void ShowOkeyMessage()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Треугольник добавлен в список\n");
-            Console.ResetColor();
+            if (flag)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Треугольник добавлен в список\n");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Это не треугольник\n");
+                Console.ResetColor();
+            }
         }
     }
 }
