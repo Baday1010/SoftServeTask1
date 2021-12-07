@@ -10,13 +10,21 @@ namespace SoftServeTask1
             
         }
         
+        /// <summary>
+        /// Вывод информации о треугольнике
+        /// </summary>
+        /// <param name="triangle">Объект треугольник</param>
         public void PrintInfoTriangle(Triangle triangle)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"[Triange {triangle.Name}]: {triangle.Square} cm");
+            Console.WriteLine($"[Triange {triangle.Name}]: {Math.Round(triangle.Square, 2)} cm");
             Console.ResetColor();
         }
 
+        /// <summary>
+        /// Выводит информацию о том добавлен объект треугольник в лист или нет
+        /// </summary>
+        /// <param name="flag"></param>
         public void ShowMessage(bool flag)
         {
             if (flag)

@@ -10,14 +10,22 @@ namespace SoftServeTask1
 
         private Triangle triangle;
 
+        /// <summary>
+        /// List of Triangles
+        /// </summary>
         public List<Triangle> listOfTriangles { get; private set; }
-
+        /// <summary>
+        /// Инициализация контроллера
+        /// </summary>
         public TriangleController()
         {
             listOfTriangles = new List<Triangle>();
             view = new View();
         }
 
+        /// <summary>
+        /// Запуск программы
+        /// </summary>
         public void Run()
         {
             ConsoleKeyInfo input;
@@ -39,9 +47,12 @@ namespace SoftServeTask1
                 input = Console.ReadKey(true);
             } while (input.Key != ConsoleKey.N);
             listOfTriangles.Sort();
-            DisplaySortedListOfTriangles();
+            DisplayListOfTriangles();
         }
 
+        /// <summary>
+        /// Задаем значения объекту треугольник
+        /// </summary>
         private void SetValues()
         {
             double sideA;
@@ -68,11 +79,13 @@ namespace SoftServeTask1
             }
             catch (FormatException ex)
             {
-                throw new FormatException($"{ex} In a call to a method that converts a string to some other data type, the string doesn't conform to the required pattern. ");
+                throw new FormatException($"{ex} In a call to a method that converts a string to some other data" +
+                    $" type, the string doesn't conform to the required pattern. ");
             }
             catch (OverflowException ex)
             {
-                throw new Exception($"{ex} An arithmetic operation produces a result that is outside the range of the data type returned by the operation.");
+                throw new OverflowException($"{ex} An arithmetic operation produces a result that is outside " +
+                    $"the range of the data type returned by the operation.");
             }
             catch (Exception ex)
             {
@@ -80,11 +93,21 @@ namespace SoftServeTask1
             }
         }
 
-        public void DisplaySortedListOfTriangles()
+        /// <summary>
+        /// Выводит лист треугольник
+        /// </summary>
+        public void DisplayListOfTriangles()
         {     
             listOfTriangles.ForEach(view.PrintInfoTriangle);
         }
 
+        /// <summary>
+        /// Реализация валидации треугольника
+        /// </summary>
+        /// <param name="sideA">сторона A</param>
+        /// <param name="sideB">сторона B</param>
+        /// <param name="sideC">сторона C</param>
+        /// <returns></returns>
         public bool IsTriangle(double sideA, double sideB, double sideC)
         {
             bool res = true;
