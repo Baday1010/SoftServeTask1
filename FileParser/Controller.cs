@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Parser;
 
 namespace FileParser
 {
@@ -28,13 +29,21 @@ namespace FileParser
                 this.SerchingSubString = Console.ReadLine();
                 this.CountOfSubStringMatches = StaticParser.FindSubString(this.LineNumber, SerchingSubString, Lines);
             }
-            catch (Exception ex)
+            catch (FormatException)
             {
-
-                throw new Exception("Parametrs entered incorrectly please try again. " + ex.Message);
+                Console.WriteLine("Arguments entered incorrectly. Second arg must be Int32 value type");
             }
-            
+            catch(ArgumentException)
+            {
+                Console.WriteLine("Parameters enter incorrectly please try again. Check is your path exist.");
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+           
         }
+
         /// <summary>
         /// Конструктор с тремя параметрами
         /// </summary>
@@ -45,19 +54,26 @@ namespace FileParser
         {
             try
             {
-
+                Console.Write("Enter line number you want to rewrite: ");
                 this.LineNumber = Convert.ToInt32(Console.ReadLine());
                 Lines = File.ReadAllLines(path);
                 this.SerchingSubString = serchingSubString;
                 Lines[this.LineNumber - 1] = StaticParser.FindAndReplaceSubString(this.LineNumber, SerchingSubString, replaceSubString, Lines);
                 File.WriteAllLines(Environment.CurrentDirectory + @"\txtfiles\1.txt", Lines);
             }
+            catch (FormatException)
+            {
+                Console.WriteLine("Arguments entered incorrectly.");
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Parameters enter incorrectly please try again. Check is your path exist.");
+            }
             catch (Exception ex)
             {
-
-                throw new Exception("Parametrs entered incorrectly please try again. " + ex.Message);
+                throw new Exception(ex.Message);
             }
-
+           
         }
 
         public void DisplayHowMuchEntracne()
@@ -82,7 +98,7 @@ namespace FileParser
             catch (Exception ex)
             {
 
-                throw new Exception(ex.Message);
+                throw new Exception("Данной строки не существует" + ex.Message);
             }
 
         }

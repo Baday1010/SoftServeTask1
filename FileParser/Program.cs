@@ -8,18 +8,33 @@ namespace FileParser
         {
             try
             {
-                //Controller controller = new Controller(Environment.CurrentDirectory + @"\txtfiles\1.txt", "2");
-                Controller controller = new Controller(args[0], args[1]);
-                controller.DisplayHowMuchEntracne();
-                //Controller controller2 = new Controller(args[0], args[1], args[2]);
-                //controller2.DisplayLine(2);
-            }
-            catch (Exception ex)
-            {
+                switch (args.Length)
+                {
+                    case 2:
+                        Controller controller = new Controller(args[0], args[1]);
+                        controller.DisplayHowMuchEntracne();
+                        break;
 
+                    case 3:
+                        Controller controller2 = new Controller(args[0], args[1], args[2]);
+                        controller2.DisplayAllLines(); 
+                        break;
+
+                    default:
+                        break;
+                }
+
+
+
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("Вы зашли за границы массива. Уменьшите кол-во аргументов передаваемых в консоль");   
+            }
+            catch(Exception ex)
+            {
                 throw new Exception(ex.Message);
             }
-            
         }
     }
 }

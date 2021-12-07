@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftServeTask1UnitTest", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileParser", "FileParser\FileParser.csproj", "{627B0163-96E0-406E-8D0D-527A92B8A157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitFileParserTest", "NUnitFileParserTest\NUnitFileParserTest.csproj", "{87DCA54A-F53C-43CB-889F-3C7AB7D45B33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitFileParserTest", "NUnitFileParserTest\NUnitFileParserTest.csproj", "{87DCA54A-F53C-43CB-889F-3C7AB7D45B33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticParser", "StaticParser\StaticParser.csproj", "{D46BB182-08F8-4447-8590-B867310478EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{87DCA54A-F53C-43CB-889F-3C7AB7D45B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87DCA54A-F53C-43CB-889F-3C7AB7D45B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87DCA54A-F53C-43CB-889F-3C7AB7D45B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D46BB182-08F8-4447-8590-B867310478EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D46BB182-08F8-4447-8590-B867310478EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D46BB182-08F8-4447-8590-B867310478EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D46BB182-08F8-4447-8590-B867310478EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
